@@ -70,7 +70,7 @@ export default function NavBar(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Logo"
+          children="Any Company"
           {...getOverrideProps(overrides, "Logo29767075")}
         ></Text>
       </Flex>
@@ -100,7 +100,7 @@ export default function NavBar(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Feed"
+          children="Dashboard"
           {...getOverrideProps(overrides, "Dashboard")}
         ></Text>
         <Text
@@ -179,7 +179,7 @@ export default function NavBar(props) {
           height="40px"
           position="relative"
           padding="0px 0px 0px 0px"
-          placeholder="Search"
+          placeholder="Placeholder"
           size="default"
           isDisabled={false}
           labelHidden={true}
