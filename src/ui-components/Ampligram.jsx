@@ -10,7 +10,7 @@ import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Divider, Flex, Icon, Image, Text, View } from "@aws-amplify/ui-react";
 import MyIcon from "./MyIcon";
 export default function Ampligram(props) {
-  const { overrides, ...rest } = props;
+  const { post, overrides, ...rest } = props;
   return (
     <Flex
       gap="8px"
@@ -52,6 +52,7 @@ export default function Ampligram(props) {
             position="relative"
             borderRadius="160px"
             padding="0px 0px 0px 0px"
+            src={post?.authorProfilePicUr}
             {...getOverrideProps(overrides, "image29766764")}
           ></Image>
           <Text
@@ -121,6 +122,7 @@ export default function Ampligram(props) {
         objectFit="cover"
         position="relative"
         padding="0px 0px 0px 0px"
+        src={post?.videoUrl}
         {...getOverrideProps(overrides, "image29766769")}
       ></Image>
       <Flex
@@ -263,7 +265,7 @@ export default function Ampligram(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Firstname Lastname"
+            children={post?.title}
             {...getOverrideProps(overrides, "Firstname Lastname")}
           ></Text>
           <Text
@@ -283,7 +285,7 @@ export default function Ampligram(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.”"
+            children={post?.description}
             {...getOverrideProps(
               overrides,
               "\u201CLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.\u201D"
@@ -305,7 +307,7 @@ export default function Ampligram(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Timestamp"
+            children={post?.postDateTime}
             {...getOverrideProps(overrides, "Timestamp")}
           ></Text>
         </Flex>

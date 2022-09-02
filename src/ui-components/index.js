@@ -28,6 +28,7 @@ export { default as MarketingFooter } from "./MarketingFooter";
 export { default as ActionCard } from "./ActionCard";
 export { default as MarketingPricing } from "./MarketingPricing";
 export { default as StandardCard } from "./StandardCard";
+export { default as AmpligramCollection } from "./AmpligramCollection";
 export { default as ProductDetail } from "./ProductDetail";
 export { default as ContactUs } from "./ContactUs";
 export { default as TallCard } from "./TallCard";

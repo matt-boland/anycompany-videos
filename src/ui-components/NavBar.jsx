@@ -16,7 +16,7 @@ import {
   View,
 } from "@aws-amplify/ui-react";
 export default function NavBar(props) {
-  const { overrides, ...rest } = props;
+  const { user, overrides, ...rest } = props;
   return (
     <Flex
       gap="20px"
@@ -221,6 +221,7 @@ export default function NavBar(props) {
           position="relative"
           borderRadius="160px"
           padding="0px 0px 0px 0px"
+          src={user?.profilePicUrl}
           {...getOverrideProps(overrides, "image")}
         ></Image>
       </Flex>

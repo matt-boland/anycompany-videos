@@ -5,9 +5,12 @@
  **************************************************************************/
 
 import React from "react";
+import { VideoPost } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps } from "@aws-amplify/ui-react";
 export declare type AmpligramProps = React.PropsWithChildren<Partial<FlexProps> & {
+    post?: VideoPost;
+} & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
 export default function Ampligram(props: AmpligramProps): React.ReactElement;

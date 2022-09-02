@@ -20,8 +20,9 @@ function App() {
       <NavBar overrides={{"Logo29767075": {children: "Any Company"}}} />
       <Flex direction="row">
         <SideBar />
-        <Videojs
-        { ...videoJsOptions } />
+        <AmpligramCollection />
+        {/* <Videojs
+        { ...videoJsOptions } /> */}
       </Flex>
     </div>
   );
