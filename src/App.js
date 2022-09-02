@@ -2,9 +2,11 @@ import './App.css';
 import { Flex } from '@aws-amplify/ui-react';
 import { Ampligram, NavBar, SideBar, AmpligramCollection} from './ui-components';
 // import Videojs from './video.js'
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 
 
-function App() {
+function App({ signOut, user }) {
 
   const videoJsOptions = {
     autoplay: true,
@@ -28,4 +30,4 @@ function App() {
   );
 }
 
-export default App;
+export default withAuthenticator(App);
