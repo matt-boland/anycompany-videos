@@ -1,7 +1,7 @@
 import './App.css';
 import { Flex } from '@aws-amplify/ui-react';
 import { Ampligram, NavBar, SideBar, AmpligramCollection} from './ui-components';
-import Videojs from './video.js'
+// import Videojs from './video.js'
 
 
 function App() {
