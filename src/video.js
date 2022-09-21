@@ -2,8 +2,14 @@
 import React from "react";
 import videojs from "video.js";
 import 'video.js/dist/video-js.css';
+import * as queries from './graphql/queries'; 
+import { API } from 'aws-amplify';
+
+
+
 
 export default class VideoPlayer extends React.Component {
+  
   componentDidMount() {
     // instantiate video.js
     this.player = videojs(this.videoNode, this.props, function onPlayerReady() {

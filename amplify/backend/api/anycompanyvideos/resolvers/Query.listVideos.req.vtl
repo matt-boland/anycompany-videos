@@ -1,0 +1,17 @@
+## Query.listVideos.req.vtl **
+{
+  "version": "2017-02-28",
+  "operation": "Query",
+  "query": {
+    "expression": "#dynamo_guid = :setGuid",
+    "expressionNames": {
+        "#dynamo_guid": "guid"
+    },
+    "expressionValues": {
+        ":setGuid": {
+          "S": "$context.args.guid"
+        }
+    }
+  },
+  "index": "guid"
+}

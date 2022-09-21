@@ -2,7 +2,16 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
+export declare class Video {
+  readonly guid: string;
+  readonly hlsUrl?: string | null;
+  constructor(init: ModelInit<Video>);
+}
 
+export declare class Videos {
+  readonly items?: (Video | null)[] | null;
+  constructor(init: ModelInit<Videos>);
+}
 
 type VideoPostMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';

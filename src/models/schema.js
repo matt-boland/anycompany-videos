@@ -176,6 +176,41 @@ export const schema = {
         }
     },
     "enums": {},
-    "nonModels": {},
-    "version": "15c02c6a16fc0c90fd76f4d66d35c6d6"
+    "nonModels": {
+        "Video": {
+            "name": "Video",
+            "fields": {
+                "guid": {
+                    "name": "guid",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "hlsUrl": {
+                    "name": "hlsUrl",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                }
+            }
+        },
+        "Videos": {
+            "name": "Videos",
+            "fields": {
+                "items": {
+                    "name": "items",
+                    "isArray": true,
+                    "type": {
+                        "nonModel": "Video"
+                    },
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                }
+            }
+        }
+    },
+    "version": "ee1fb1b063a0218d4f29703652c0b711"
 };

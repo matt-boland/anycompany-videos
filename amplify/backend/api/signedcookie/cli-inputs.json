@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/signedcookie": {
+      "name": "/signedcookie",
+      "lambdaFunction": "CreateSignedCookie",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

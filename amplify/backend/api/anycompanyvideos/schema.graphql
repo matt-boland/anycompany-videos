@@ -15,4 +15,17 @@ type User @model @auth(rules: [{allow: public}]) {
   lastName: String
   profilePicUrl: String
 }
+
+type Video {
+  guid: ID!
+  hlsUrl: String
+}
+
+type Videos {
+  items: [Video]
+}
+
+type Query {
+  getVideoByGuid(guid: String!): Video
+}
  

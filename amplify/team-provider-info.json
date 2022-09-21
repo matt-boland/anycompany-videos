@@ -9,7 +9,33 @@
       "UnauthRoleName": "amplify-anycompanyvideos-staging-171446-unauthRole",
       "StackName": "amplify-anycompanyvideos-staging-171446",
       "StackId": "arn:aws:cloudformation:us-east-1:323079531845:stack/amplify-anycompanyvideos-staging-171446/943f5180-2a19-11ed-812b-0ae5d7e6cb5b",
-      "AmplifyAppId": "d1p4t29ysdweyk"
+      "AmplifyAppId": "d1p4t29ysdweyk",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-anycompanyvideos-staging-171446-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "auth": {
+        "anycompanyvideos": {}
+      },
+      "storage": {
+        "videoondemand": {
+          "tableName": "video-on-demand",
+          "region": "us-east-1",
+          "arn": "arn:aws:dynamodb:us-east-1:323079531845:table/video-on-demand",
+          "partitionKeyName": "guid",
+          "partitionKeyType": "S"
+        }
+      },
+      "function": {
+        "videosondemand": {
+          "deploymentBucketName": "amplify-anycompanyvideos-staging-171446-deployment",
+          "s3Key": "amplify-builds/videosondemand-396a4b2b496b49413948-build.zip"
+        },
+        "CreateSignedCookie": {
+          "secretsPathAmplifyAppId": "d1p4t29ysdweyk",
+          "deploymentBucketName": "amplify-anycompanyvideos-staging-171446-deployment",
+          "s3Key": "amplify-builds/CreateSignedCookie-4d612f696e443653794a-build.zip"
+        }
+      }
     }
   }
 }
