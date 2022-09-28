@@ -7,13 +7,23 @@ import '@aws-amplify/ui-react/styles.css';
 // imports from Amplify library
 import { API, graphqlOperation } from 'aws-amplify'
 import { format } from 'date-fns';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import About from "./routes/about";
+import Videos from "./routes/videos";
+import Player from "./routes/player";
 
 // import query definition
 import * as queries from './graphql/queries'
 import React from 'react';
+import { render } from '@testing-library/react';
 
 class App extends React.Component {
-  pageSize = 5;
+  pageSize = 20;
 
   state = {
     videoOnDemands: [],
@@ -89,58 +99,77 @@ calculateDuration(startTime, endTime) {
   return (duration / 1000).toFixed(1);
 }
 
+// render() {
+//   return (
+//     <>
+//       <div className="App">
+//          <Table>
+//           <TableHead>
+//             <TableRow>
+//               <TableCell>Item</TableCell>
+//               <TableCell></TableCell>
+//               <TableCell>Name</TableCell>
+//               <TableCell>Start time</TableCell>
+//               <TableCell>End time</TableCell>
+//               <TableCell>Duration (s)</TableCell>
+//             </TableRow>
+//           </TableHead>
+//           <TableBody>
+//           {
+//             this.state.videoOnDemands.map((videoOnDemand, index) => (
+//               <TableRow key={videoOnDemand.guid}>
+//                 <TableCell>{this.calculateIndex(index)}</TableCell>
+//                 <TableCell><a href={videoOnDemand.hlsUrl} target="_blank"><img width="180px" src={videoOnDemand.thumbNailsUrls[0]}></img></a></TableCell>
+//                 <TableCell><a href={videoOnDemand.hlsUrl} target="_blank">{videoOnDemand.srcVideo}</a></TableCell>
+//                 <TableCell>{this.formatDataTime(videoOnDemand.startTime)}</TableCell>
+//                 <TableCell>{this.formatDataTime(videoOnDemand.endTime)}</TableCell>
+//                 <TableCell>{this.calculateDuration(videoOnDemand.startTime, videoOnDemand.endTime)}</TableCell>
+//               </TableRow>
+//             ))
+//           }
+//           </TableBody>
+//         </Table>
+//         <div class="pagination-container">
+//         <Pagination
+//       currentPage={this.state.currentPageIndex}
+//       totalPages={this.state.totalPages}
+//       hasMorePages={this.state.nextToken != null}
+//       onNext={this.onNextPage}
+//       onPrevious={this.onPreviousPage} /></div>
+//       </div>
+//     </>
+//   )
+// }
+
 render() {
   return (
-    <>
-      <div className="App">
-       <NavBar overrides={{"Logo29767075": {children: "Any Company"}}} />
-       {/* <Flex direction="row"> */}
-         {/* <SideBar /> */}
-         <Pagination
-      currentPage={this.state.currentPageIndex}
-      totalPages={this.state.totalPages}
-      hasMorePages={this.state.nextToken != null}
-      onNext={this.onNextPage}
-      onPrevious={this.onPreviousPage} />
-         <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Item</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>Start time</TableCell>
-              <TableCell>End time</TableCell>
-              <TableCell>Duration (s)</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-          {
-            this.state.videoOnDemands.map((videoOnDemand, index) => (
-              <TableRow key={videoOnDemand.guid}>
-                <TableCell>{this.calculateIndex(index)}</TableCell>
-                <TableCell><a href={videoOnDemand.hlsUrl} target="_blank">{videoOnDemand.srcVideo}</a></TableCell>
-                <TableCell>{this.formatDataTime(videoOnDemand.startTime)}</TableCell>
-                <TableCell>{this.formatDataTime(videoOnDemand.endTime)}</TableCell>
-                <TableCell>{this.calculateDuration(videoOnDemand.startTime, videoOnDemand.endTime)}</TableCell>
-              </TableRow>
-            ))
-          }
-          </TableBody>
-        </Table>
-         {/* {
-            this.state.videoPosts.map((videoPost, index) => (
-              <div key={index}>
-                <h3>{videoPost.guid}</h3>
-              </div>
-             
-            ))
-          } */}
-       {/* </Flex> */}
-     </div>
-      
-    </>
-  )
+    <Router>
+      <div className='navbar'>
+        <h1>Any Company Videos</h1>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/videos">Videos</Link>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <Routes>
+          <Route path="about" element={<About />} />
+          <Route path="videos" element={<Videos />} />
+          <Route path="video-player" element={<Player />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 }
+
 
 export default App;
 
