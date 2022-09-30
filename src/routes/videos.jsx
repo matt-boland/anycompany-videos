@@ -1,13 +1,8 @@
 import { Table, TableBody, TableHead, TableCell, TableRow, Pagination } from '@aws-amplify/ui-react';
 // imports from Amplify library
-import { API, graphqlOperation } from 'aws-amplify'
+import { API } from 'aws-amplify'
 import { format } from 'date-fns';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // import query definition
 import * as queries from '../graphql/queries'
@@ -26,7 +21,7 @@ class Videos extends React.Component {
 // execute the query in componentDidMount
 async componentDidMount() {
   try {
-    await this.fetchSignedCookies();
+    // await this.fetchSignedCookies();
     await this.fetchVideoOnDemads(null);
     this.onNextPage = this.onNextPage.bind(this);
     this.onPreviousPage = this.onPreviousPage.bind(this);
@@ -35,9 +30,9 @@ async componentDidMount() {
   }
 }
 
-async fetchSignedCookies() {
-  const signedCookies = await API.get('signedcookie', '/signedcookie');
-}
+// async fetchSignedCookies() {
+//   const signedCookies = await API.get('signedcookie', '/signedcookie');
+// }
 
 async fetchVideoOnDemads(token) {
   const videoOnDemandsData = await API.graphql({
@@ -94,15 +89,17 @@ render() {
   return (
     <>
       <div className="App">
+        <div className='videoListContainer'>
          <Table>
           <TableHead>
             <TableRow>
               <TableCell>Item</TableCell>
               <TableCell></TableCell>
               <TableCell>Name</TableCell>
-              <TableCell>Start time</TableCell>
+              {/* <TableCell>Source Info</TableCell> */}
+              {/* <TableCell>Start time</TableCell>
               <TableCell>End time</TableCell>
-              <TableCell>Duration (s)</TableCell>
+              <TableCell>Duration (s)</TableCell> */}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -112,21 +109,23 @@ render() {
                 <TableCell>{this.calculateIndex(index)}</TableCell>
                 <TableCell><Link to="/video-player"><img width="180px" src={videoOnDemand.thumbNailsUrls[0]}></img></Link></TableCell>
                 <TableCell><a href={videoOnDemand.hlsUrl} target="_blank">{videoOnDemand.srcVideo}</a></TableCell>
-                <TableCell>{this.formatDataTime(videoOnDemand.startTime)}</TableCell>
+                {/* <TableCell><pre>{JSON.stringify(JSON.parse(videoOnDemand.srcMediainfo), null, 2)}</pre></TableCell> */}
+                {/* <TableCell>{this.formatDataTime(videoOnDemand.startTime)}</TableCell>
                 <TableCell>{this.formatDataTime(videoOnDemand.endTime)}</TableCell>
-                <TableCell>{this.calculateDuration(videoOnDemand.startTime, videoOnDemand.endTime)}</TableCell>
+                <TableCell>{this.calculateDuration(videoOnDemand.startTime, videoOnDemand.endTime)}</TableCell> */}
               </TableRow>
             ))
           }
           </TableBody>
         </Table>
-        <div class="pagination-container">
+        <div className="pagination-container">
         <Pagination
       currentPage={this.state.currentPageIndex}
       totalPages={this.state.totalPages}
       hasMorePages={this.state.nextToken != null}
       onNext={this.onNextPage}
       onPrevious={this.onPreviousPage} /></div>
+      </div>
       </div>
     </>
   )

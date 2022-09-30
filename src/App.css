@@ -80,3 +80,25 @@ li a {
 li a:hover {
   background-color: #111;
 }
+
+pre {
+  text-align: left;
+}
+
+table {
+  max-width: 800px;
+}
+
+.videoListContainer {
+  max-width: 800px;
+}
+
+.footer {
+  background-color: #282c34;
+  color: lightgray;
+  padding-left: 20px;
+}
+
+.authContainer {
+  float: right;
+}

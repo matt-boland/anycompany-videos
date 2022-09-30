@@ -169,6 +169,7 @@ export const listVideoOnDemands = /* GraphQL */ `
         startTime
         endTime
         thumbNailsUrls
+        srcMediainfo
       }
       nextToken
     }
