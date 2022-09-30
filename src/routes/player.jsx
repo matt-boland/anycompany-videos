@@ -1,6 +1,7 @@
 import Videojs from '../video';
 import { useLocation } from "react-router-dom";
 import React from 'react';
+import { Link } from "react-router-dom";
 
 
   const videoJsOptions = {
@@ -15,14 +16,17 @@ import React from 'react';
 export default function Player() {
   const location = useLocation();
   videoJsOptions.sources[0].src = location.state.videoUrl;
-  console.log(location.state);
-  
+  const backText = '<- Back to video list';
 
   
   return (
-    <main style={{ padding: "1rem 0" }}>
+    <main style={{ padding: "1rem 1rem" }}>
+      <div style={{ padding: "0 0 1rem 0" }}><Link to="/">{backText}</Link></div>
       <Videojs
         { ...videoJsOptions } />
+    <pre>
+      {location.state.srcMediaInfo}
+    </pre>
     </main>
   );
 }

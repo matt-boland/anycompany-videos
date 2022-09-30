@@ -107,7 +107,7 @@ render() {
           <TableHead>
             <TableRow>
               <TableCell>Item</TableCell>
-              <TableCell></TableCell>
+              <TableCell>Link</TableCell>
               <TableCell>Name</TableCell>
               {/* <TableCell>Source Info</TableCell> */}
               <TableCell>Start time</TableCell>
@@ -120,7 +120,7 @@ render() {
             this.state.videoOnDemands.map((videoOnDemand, index) => (
               <TableRow key={videoOnDemand.guid}>
                 <TableCell>{this.calculateIndex(index)}</TableCell>
-                <TableCell><Link to="/video-player" state={{videoUrl: videoOnDemand.hlsUrl}}><img width="180px" src={this.determineThumbNailUrl(videoOnDemand)}></img></Link></TableCell>
+                <TableCell><Link to="/video-player" state={{videoUrl: videoOnDemand.hlsUrl, srcMediaInfo: videoOnDemand.srcMediaInfo}}><img width="180px" src={this.determineThumbNailUrl(videoOnDemand)}></img></Link></TableCell>
                 <TableCell>{videoOnDemand.srcVideo}</TableCell>
                 {/* <TableCell><pre>{JSON.stringify(JSON.parse(videoOnDemand.srcMediainfo), null, 2)}</pre></TableCell> */}
                 <TableCell>{this.formatDataTime(videoOnDemand.startTime)}</TableCell>

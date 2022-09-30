@@ -29,15 +29,7 @@ render() {
             )}
           </Authenticator>
         </div>
-        <h1>Any Company</h1>
-        <ul>
-          <li>
-            <Link to="/">Videos</Link>
-          </li>
-          <li>
-            <Link to="/video-player">Video Player</Link>
-          </li>
-        </ul>
+        <h1><Link to="/">Any Company</Link></h1>
       </div>
       <div>
         <Routes>
