@@ -35,14 +35,14 @@ render() {
             <Link to="/">Videos</Link>
           </li>
           <li>
-            <Link to="/player">Video Player</Link>
+            <Link to="/video-player">Video Player</Link>
           </li>
         </ul>
       </div>
       <div>
         <Routes>
           <Route path="" element={<Videos /> } />
-          <Route path="player" element={<Player />} />
+          <Route path="video-player" element={<Player />} />
         </Routes>
       </div>
       <div className='footer'>Privacy | Site terms | Cookie policy</div>
