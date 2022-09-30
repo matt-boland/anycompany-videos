@@ -1,4 +1,7 @@
 import Videojs from '../video';
+import { useLocation } from "react-router-dom";
+import React from 'react';
+
 
   const videoJsOptions = {
     autoplay: true,
@@ -10,6 +13,10 @@ import Videojs from '../video';
   };
 
 export default function Player() {
+  const location = useLocation();
+  videoJsOptions.sources[0].src = location.state.videoUrl;
+  console.log(location.state);
+  
 
   
   return (

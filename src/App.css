@@ -86,11 +86,11 @@ pre {
 }
 
 table {
-  max-width: 800px;
+  /* max-width: 800px; */
 }
 
 .videoListContainer {
-  max-width: 800px;
+  /* max-width: 800px; */
 }
 
 .footer {

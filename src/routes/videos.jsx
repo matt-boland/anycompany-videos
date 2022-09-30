@@ -85,6 +85,19 @@ calculateDuration(startTime, endTime) {
   return (duration / 1000).toFixed(1);
 }
 
+randomIntFromInterval(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+determineThumbNailUrl(vod) {
+  const thumbnails = vod.thumbNailsUrls;
+  if (thumbnails.length > 0) {
+    return thumbnails[this.randomIntFromInterval(0, thumbnails.length - 1)];
+  } else {
+    return '';
+  }
+}
+
 render() {
   return (
     <>
@@ -97,9 +110,9 @@ render() {
               <TableCell></TableCell>
               <TableCell>Name</TableCell>
               {/* <TableCell>Source Info</TableCell> */}
-              {/* <TableCell>Start time</TableCell>
+              <TableCell>Start time</TableCell>
               <TableCell>End time</TableCell>
-              <TableCell>Duration (s)</TableCell> */}
+              <TableCell>Duration (s)</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -107,12 +120,12 @@ render() {
             this.state.videoOnDemands.map((videoOnDemand, index) => (
               <TableRow key={videoOnDemand.guid}>
                 <TableCell>{this.calculateIndex(index)}</TableCell>
-                <TableCell><Link to="/video-player"><img width="180px" src={videoOnDemand.thumbNailsUrls[0]}></img></Link></TableCell>
-                <TableCell><a href={videoOnDemand.hlsUrl} target="_blank">{videoOnDemand.srcVideo}</a></TableCell>
+                <TableCell><Link to="/video-player" state={{videoUrl: videoOnDemand.hlsUrl}}><img width="180px" src={this.determineThumbNailUrl(videoOnDemand)}></img></Link></TableCell>
+                <TableCell>{videoOnDemand.srcVideo}</TableCell>
                 {/* <TableCell><pre>{JSON.stringify(JSON.parse(videoOnDemand.srcMediainfo), null, 2)}</pre></TableCell> */}
-                {/* <TableCell>{this.formatDataTime(videoOnDemand.startTime)}</TableCell>
+                <TableCell>{this.formatDataTime(videoOnDemand.startTime)}</TableCell>
                 <TableCell>{this.formatDataTime(videoOnDemand.endTime)}</TableCell>
-                <TableCell>{this.calculateDuration(videoOnDemand.startTime, videoOnDemand.endTime)}</TableCell> */}
+                <TableCell>{this.calculateDuration(videoOnDemand.startTime, videoOnDemand.endTime)}</TableCell>
               </TableRow>
             ))
           }
