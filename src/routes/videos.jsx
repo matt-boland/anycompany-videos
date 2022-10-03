@@ -90,8 +90,8 @@ randomIntFromInterval(min, max) { // min and max included
 }
 
 determineThumbNailUrl(vod) {
-  const thumbnails = vod.thumbNailsUrls;
-  if (thumbnails.length > 0) {
+  if (vod && vod.thumbNailsUrls && vod.thumbNailsUrls.length > 0) {
+    const thumbnails = vod.thumbNailsUrls;
     return thumbnails[this.randomIntFromInterval(0, thumbnails.length - 1)];
   } else {
     return '';
