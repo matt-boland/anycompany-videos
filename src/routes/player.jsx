@@ -24,9 +24,9 @@ export default function Player() {
       <div style={{ padding: "0 0 1rem 0" }}><Link to="/">{backText}</Link></div>
       <Videojs
         { ...videoJsOptions } />
-    <pre>
-      {location.state.srcMediaInfo}
-    </pre>
+      <pre>
+        {location.state.srcMediainfo}
+      </pre>
     </main>
   );
 }

@@ -111,3 +111,11 @@ table {
 .authContainer {
   float: right;
 }
+
+.videoName {
+  min-width: 150px;
+}
+
+.videoDesc {
+  text-align: left;
+}
